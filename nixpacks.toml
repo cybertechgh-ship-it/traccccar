@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ['nodejs']
+
+[phases.build]
+cmds = [
+  'cd traccar-web && npm install && npm run build && cd ..',
+  './gradlew clean build -x check -x test'
+]
+
+[start]
+cmd = 'java $JAVA_OPTS -jar target/tracker-server.jar debug.xml'
