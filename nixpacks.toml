@@ -3,8 +3,7 @@ nixPkgs = ['nodejs']
 
 [phases.build]
 cmds = [
-  'cd traccar-web && npm install && npm run build && cd ..',
-  './gradlew clean build -x check -x test'
+  'cd traccar-web && npm install && npm run build && cd .. && ./gradlew clean build -x check -x test -Pproduction'
 ]
 
 [start]
